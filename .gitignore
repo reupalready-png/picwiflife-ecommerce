@@ -1,0 +1,16 @@
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+node_modules/
+package-lock.json
+yarn.lock
+dist/
+build/
+.env
+.env.local
+Thumbs.db
+*.log
+.cache/
