@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picwiflife - Premium Pet Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-section">
+                <div class="logo-placeholder">🐾</div>
+                <div class="brand">
+                    <h1>Picwiflife</h1>
+                    <p>Premium Pet Store</p>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#products" class="nav-link">Shop</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                <button id="cart-btn" class="cart-button">
+                    🛒 Cart <span id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Premium Pet Products for Your Beloved Companions</h2>
+            <p>Discover our curated collection of high-quality pet essentials</p>
+            <a href="#products" class="cta-button">Explore Collection</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Our Premium Collection</h2>
+            <div class="filter-section">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="leashes">Leashes</button>
+                <button class="filter-btn" data-filter="grooming">Grooming</button>
+                <button class="filter-btn" data-filter="furniture">Furniture</button>
+                <button class="filter-btn" data-filter="toys">Toys</button>
+                <button class="filter-btn" data-filter="accessories">Accessories</button>
+            </div>
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Picwiflife</h2>
+            <p>At Picwiflife, we believe your pets deserve the very best. Our premium pet store offers carefully curated products made with high-quality materials and designed with your pet's comfort, safety, and happiness in mind.</p>
+            <div class="features">
+                <div class="feature">
+                    <h3>🌟 Premium Quality</h3>
+                    <p>Only the finest materials and craftsmanship</p>
+                </div>
+                <div class="feature">
+                    <h3>✅ Pet Safe</h3>
+                    <p>All products tested and certified safe</p>
+                </div>
+                <div class="feature">
+                    <h3>🚚 Fast Shipping</h3>
+                    <p>Free shipping on orders over $75</p>
+                </div>
+                <div class="feature">
+                    <h3>💝 Expert Support</h3>
+                    <p>24/7 customer care for pet parents</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <form class="contact-form" id="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Shopping Cart</h2>
+            <div id="cart-items" class="cart-items">
+                <p class="empty-cart">Your cart is empty</p>
+            </div>
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span>$<span id="subtotal">0.00</span></span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping:</span>
+                    <span>$<span id="shipping">0.00</span></span>
+                </div>
+                <div class="summary-row total">
+                    <h3>Total:</h3>
+                    <h3>$<span id="cart-total">0.00</span></h3>
+                </div>
+                <button class="checkout-btn">Proceed to Checkout</button>
+                <button class="continue-shopping-btn" onclick="closeCart()">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="product-detail">
+                <img id="detail-image" src="" alt="Product">
+                <div class="detail-info">
+                    <h2 id="detail-title"></h2>
+                    <div class="rating">
+                        <span id="detail-rating">⭐⭐⭐⭐⭐</span>
+                        <span id="detail-reviews">(0 reviews)</span>
+                    </div>
+                    <p id="detail-description"></p>
+                    <div class="detail-specs">
+                        <p><strong>Price:</strong> $<span id="detail-price"></span></p>
+                        <p><strong>Category:</strong> <span id="detail-category"></span></p>
+                        <p><strong>Stock Available:</strong> <span id="detail-stock"></span></p>
+                    </div>
+                    <div class="quantity-selector">
+                        <label for="quantity-input">Quantity:</label>
+                        <input type="number" id="quantity-input" min="1" value="1">
+                    </div>
+                    <button class="add-cart-btn" onclick="addToCart()">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h4>About Picwiflife</h4>
+                <p>Premium pet products for every furry friend</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#products">Shop</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>Email: hello@picwiflife.com</p>
+                <p>Phone: 1-800-PET-LIFE</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Picwiflife - Premium Pet Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
